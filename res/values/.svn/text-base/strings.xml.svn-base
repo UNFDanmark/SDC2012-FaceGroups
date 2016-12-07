@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">FaceGroups</string>
+    <string name="menu_settings">Indstillinger</string>
+    <string name="title_activity_proto">FaceGroups</string>
+    <string name="title_activity_indstillinger">Indstillinger</string>
+    <string name="title_activity_gruppe">Genererede grupper</string>
+    <string name="title_activity_vejledning">Vejledning</string>
+    <string name="title_activity_analyse">Analysering</string>
+    <!-- <string name="hello_world">Hello world!</string> -->
+     <string name="title_activity_loading_screen">Indlæser</string>
+
+</resources>

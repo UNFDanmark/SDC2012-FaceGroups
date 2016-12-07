@@ -1,0 +1,176 @@
+package dk.unf.sdc.gruppeb;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+import android.graphics.Bitmap;
+
+public class DCachedFaceList extends DBasicFaceCollection {
+
+	public DCachedFaceList(DBasicFaceCollection faces, Bitmap sourceImage) {
+		super(faces.getFaces(), sourceImage);
+		cachedFaces = new ArrayList<DCachedFace>();
+	}
+
+	public static ArrayList<ArrayList<DCachedFace>> grosAlgoritme(
+			ArrayList<DCachedFace> faces, int numGroups) {
+		Random random = new Random();
+		ArrayList<DCachedFace> kopiAfFaces = new ArrayList<DCachedFace>(faces);
+		ArrayList<ArrayList<DCachedFace>> groups = new ArrayList<ArrayList<DCachedFace>>();
+		
+		for (int i = 0; i < numGroups; i++) {
+			groups.add(new ArrayList<DCachedFace>());
+		}
+		
+		while (kopiAfFaces.size() - 1 > 0) {
+			for (int i = 0; i < numGroups; i++) {
+				if (kopiAfFaces.size() - 1 > 0) {
+					int randomTal = random.nextInt(kopiAfFaces.size() - 1);
+					DCachedFace randomPerson = kopiAfFaces.get(randomTal);
+					ArrayList<DCachedFace> group = groups.get(i);
+
+					group.add(randomPerson);
+					kopiAfFaces.remove(randomPerson);
+				}
+			}
+		}
+
+		return groups;
+	}
+
+	/**
+	 * 
+	 * @param numGroups
+	 *            antallet af grupper
+	 * @return en liste af liste af ansigter (liste af grupper)
+	 */
+	// Del ansigter op i grupper baseret på antal grupper
+	public static ArrayList<ArrayList<DCachedFace>> tempNavn(
+			ArrayList<DCachedFace> faces, int numGroups) {
+		// Find antal gruppemedlemmer i heltal
+		int numMembers = faces.size() / numGroups;
+		int rest = faces.size() % numGroups;
+		// Lav random number generator til tilfældig udvælgelse af
+		// personer i faces listen
+		Random rng = new Random();
+		// Initialisering af liste af liste af ansigter (dvs liste af grupper)
+		ArrayList<ArrayList<DCachedFace>> grupper = new ArrayList<ArrayList<DCachedFace>>();
+		// Initialisering af en kopi af this.faces så vi kan pille ved den, uden
+		// at ødelægge this.faces
+		ArrayList<DCachedFace> kopiAfFaces = new ArrayList<DCachedFace>(faces);
+
+		// For hver gruppe, der skal laves,...
+		for (int outerIndex = 0; outerIndex < numGroups; outerIndex++) {
+			ArrayList<DCachedFace> gruppe = new ArrayList<DCachedFace>();
+			// ... skal der findes numMembers ansigter
+			for (int innerIndex = 0; innerIndex < numMembers; innerIndex++) {
+				// Find tilfældigt tal. Vi bruger nextInt() metoden.
+				// Parameteren er antallet af ansigter vi har at arbejde med,
+				// og vi trækker 1 fra, fordi vi skal bruge nul-indekserede
+				// lister
+				int randomTal = rng.nextInt(kopiAfFaces.size());
+				while (kopiAfFaces.get(randomTal) == null) {
+					randomTal = rng.nextInt(kopiAfFaces.size());
+				}
+				// Hent ansigt ud af kopien af this.faces
+				DCachedFace fundetAnsigt = kopiAfFaces.get(randomTal);
+				// Tilføj til gruppen
+				gruppe.add(fundetAnsigt);
+				// Fjern fra vores kopi af this.faces
+				kopiAfFaces.remove(fundetAnsigt);
+			}
+			grupper.add(gruppe);
+		}
+
+		// Lav gruppe af rest (hvis der er en rest)
+		if (kopiAfFaces.isEmpty() == false) {
+			// Hvis rest er 1, flytter vi den sidste person over i en random
+			// gruppe
+			if (rest == 1) {
+				// Random rand = new Random();
+				int randomGruppeIndex = rng.nextInt(grupper.size() - 1);
+				ArrayList<DCachedFace> randomGruppe = grupper
+						.get(randomGruppeIndex);
+
+				DCachedFace person = kopiAfFaces.get(0);
+				randomGruppe.add(person);
+				kopiAfFaces.remove(person);
+				return grupper;
+			} else {
+				for (DCachedFace face : kopiAfFaces) {
+					int randomGruppeIndex = rng.nextInt(grupper.size() - 1);
+					ArrayList<DCachedFace> randomGruppe = grupper
+							.get(randomGruppeIndex);
+
+					DCachedFace person = kopiAfFaces.get(0);
+					randomGruppe.add(person);
+					kopiAfFaces.remove(person);
+					return grupper;
+				}
+			}
+
+			/*
+			 * ArrayList<DCachedFace> gruppe = new ArrayList<DCachedFace>(); //
+			 * Tilføj resterende ansigter til den sidste "speciell" gruppe for
+			 * (DCachedFace face : kopiAfFaces) { gruppe.add(face); }
+			 * 
+			 * // Hvis vores restgruppes antal medlemmer varierer med mere end
+			 * // -1... if (gruppe.size() != numMembers - 1) { // ... flytter vi
+			 * et medlem fra en tilfældig gruppe til vores // restgruppe Random
+			 * rand = new Random(); int randomGruppeIndex =
+			 * rand.nextInt(grupper.size() - 1); ArrayList<DCachedFace>
+			 * randomGruppe = grupper .get(randomGruppeIndex); int
+			 * randomPersonIndex = rand.nextInt(randomGruppe.size() - 1);
+			 * DCachedFace randomPerson = randomGruppe.get(randomPersonIndex);
+			 * gruppe.add(randomPerson); randomGruppe.remove(randomPersonIndex);
+			 * }
+			 * 
+			 * // Tilføj gruppen til vores liste af grupper grupper.add(gruppe);
+			 */
+		}
+
+		// Lav et check om antal grupper == antal givne grupper
+
+		return grupper;
+	}
+
+	public void Crop() {
+		for (DBasicFace face : this.getFaces()) {
+			int x = face.getRectangle().left;
+			int y = face.getRectangle().top;
+
+			int width = face.getRectangle().width();
+			int height = face.getRectangle().height();
+			boolean needScaling = false;
+			
+			//Check if some of the face is outside the image
+			if (x <= 0) {
+				x = 0;
+				needScaling = true;
+			} else if (x+width >= getBitmap().getWidth()) {
+				x = getBitmap().getWidth() - width;
+				needScaling = true;
+			}
+			if (y <= 0) {
+				y = 0;
+				needScaling = true;
+			} else if (y+height >= getBitmap().getHeight()) {
+				y = getBitmap().getHeight() - height;
+				needScaling = true;
+			}
+			Bitmap tempBitmap = Bitmap.createBitmap(getBitmap(), x, y, width,
+					height);
+			if (needScaling) {
+				tempBitmap = Bitmap.createScaledBitmap(tempBitmap, face.getRectangle().width(), face.getRectangle().height(), true);
+			}
+			DCachedFace tempCachedFace = new DCachedFace(face, tempBitmap);
+			cachedFaces.add(tempCachedFace);
+		}
+	}
+
+	private ArrayList<DCachedFace> cachedFaces;
+
+	public ArrayList<DCachedFace> getCachedFaces() {
+		return cachedFaces;
+	}
+}

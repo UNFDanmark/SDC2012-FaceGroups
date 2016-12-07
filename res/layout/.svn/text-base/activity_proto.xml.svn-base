@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layoutRoot"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/takePicBut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tag billede" />
+
+        <TextView
+            android:id="@+id/protoSpacer1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" " />
+
+        <Button
+            android:id="@+id/usePicBut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Brug eksisterende billede" />
+
+        <TextView
+            android:id="@+id/protoSpacer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" " />
+
+        <Button
+            android:id="@+id/tutorialBut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vejledning" />
+    </LinearLayout>
+
+</LinearLayout>

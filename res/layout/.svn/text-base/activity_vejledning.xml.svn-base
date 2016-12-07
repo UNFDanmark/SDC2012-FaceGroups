@@ -1,0 +1,85 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_small" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vejledning:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Med denne applikation kan du danne tilfældige grupper ud fra en forsamling. Tag et billede af forsamlingen eller af den gruppe personer som du vil fordele og applikationen giver dig en tilfældig sammesætning af grupper.
+Når du klikker på knappen &apos;Tag et billede&apos; åbner der et vindue hvor du kan tage et billede af den gruppe af mennesker som du vil fordele. 
+
+Hvis du allerede tidligere har taget et billede af denne gruppe mennesker, så kan du genindlæse billedet fra dit galleri ved at klikke på knappen &apos;Vælg tidligere billede&apos;. Billeder som er blevet taget inde i app&apos;en, gemmes inde i sin egen mappe i dit galleri kaldet &apos;FaceGroups&apos;.   
+
+Nu loader app&apos;en de ansigter som den har fundet på dit billede. Hvis den ikke har fundet alle personerne, så dobbeltklikker du på ansigtet af de manglende personer, så de også bliver registreret. Hvis der er blevet registreret noget i billedet som ikke er et ansigt, så klikker du på ansigtet og holder inde indtil firkanten forsvinder. Når du er færdig med at redigere billedet trykker du på knappen &apos;Næste&apos;." />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ansigt_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="
+I vinduet der nu kommer frem, kan du indstille hvor mange grupper du vil danne eller hvor mange personer du vil have i hver gruppe. Denne indstilling skifter du imellem neden under baren midt på skærmen. Du ændre indstillinger enten ved at trække i baren midt på skærmen eller ved at hoppe trinvist op eller ned i antal når du trykker på knapperne i hver ende af baren. Imens kan du se den foreløbige fordeling af grupper oven over baren. Det ideele er at bestemme dig for et antal af grupper så der ikke står en rest af personer som danner en skæv gruppe. Det er dog ikke et krav at antallet af grupper skal gå op med antallet af personer." />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/gui_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Når du har bestemt dig for hvor mange grupper du vil have, så trykker du på knappen &apos;Næste&apos;. Nu ser du dine endelige grupper og kan bladre igennem dem ved at trykke på knapperne i toppen af skærmen. Grupperne er sammensat af billederne af folks ansigter. Grupperne er sammensat helt tilfældigt af applikationen." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tips &amp; Tricks:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Når du tager dit billede af din forsamling er det vigtigt at alle folk kigger ind i kamaraet, hvis applikationen skal genkende så mange ansigter som muligt. På denne måde kan du hurtigere komme igennem redigeringen af billedet og hurtigt lave dine grupper. 
+            
+Kvaliteten af billederne som ses i de endelige grupper afgøres udelukkende af kvaliteten af dit kamara. Applikationen genkender også flere ansigter jo bedre kamara. Enten kan du vælge blot at tilføje ansigterne til billedet. Ellers kan du ændre på opsætningen af dit billede. Sørg fx for at der ikke er forstyrende elementer i billedet, så find en så ensfarvet  som mulig baggrund. Det kan sandsynligvis også hjælpe at lave en mere organiseret opstiling af forsamlingen, hvor man får så lidt spildplads mellem ansigterne som muligt. Opløsningen af hver enkelt ansigt skal være så god som mulig." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="
+Applikationen er udviklet på UNF Software Development Camp 2012 af Søren Bjergmark, Mads Nielsen, Lasse Dissing, Jakob Pedersen og Gro Dyrting"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" " />
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/padding_small" >
+
+        <TextView
+            android:id="@+id/indstOverskriftFix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding_small"
+            android:text="Indstil antal grupper:"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:id="@+id/textViewRoot"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="left"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_large"
+            android:paddingTop="@dimen/padding_large" >
+
+            <TextView
+                android:id="@+id/indstAntalGrpFix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Antal grupper:  "
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/indstAntalGrpDyn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NULL"
+                android:textSize="20dp" />
+           
+            /* Linje 1 i antal Grp */
+
+            <TextView
+                android:id="@+id/indstAntalGrpDyn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NULL"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/indstAntalGrpFix1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" grupper med "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/indstAntalPersDyn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NULL"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/indstAntalPersFix1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" personer"
+                android:textSize="20dp" />            
+        </LinearLayout>
+
+        <!-- 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingLeft="@dimen/padding_large"
+            android:paddingTop="@dimen/padding_large" >
+
+            <TextView
+                android:id="@+id/indstAntalPersFix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personer pr. gruppe:  "
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/indstAntalPersDyn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NULL"
+                android:textSize="20dp" />
+            
+            /* Linje 2 i antal Grp */
+
+            <TextView
+                android:id="@+id/indstAntalGrpDyn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NULL"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/indstAntalGrpFix2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" grupper med "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/indstAntalPersDyn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NULL"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/indstAntalPersFix2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" personer"
+                android:textSize="20dp" />
+            
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingLeft="@dimen/padding_large"
+            android:paddingTop="@dimen/padding_large" >
+
+            <TextView
+                android:id="@+id/indstAntalRestFix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personer i sidste gruppe:  "
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/indstAntalRestDyn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NULL"
+                android:textSize="20dp" />
+        </LinearLayout>
+        android:paddingTop="40dp"
+-->
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/indstillingerSeekbar"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/sliderVBut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.10"
+                android:text="&lt;"
+                android:textSize="20dp" />
+
+            <SeekBar
+                android:id="@+id/indstSlider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.85"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <Button
+                android:id="@+id/sliderHBut"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="0.10"
+                android:text=">"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom|right"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/padding_large"
+            android:paddingRight="@dimen/padding_large"
+            android:paddingTop="20dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp" >
+
+                    <RadioButton
+                        android:id="@+id/grpRadioBut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Antal grupper" />
+
+                    <RadioButton
+                        android:id="@+id/persRadioBut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="Personer pr. gruppe" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/nextABut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:text="Næste"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
